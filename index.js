@@ -1,4 +1,8 @@
 var crypto = require('crypto');
+
+/* Set the default encoding of cryto to binary to match node 012 */
+crypto.DEFAULT_ENCODING = 'binary';
+
 var LocalStrategy = require('passport-local').Strategy;
 var errors = require('./lib/errors.js');
 var scmp = require('scmp');
