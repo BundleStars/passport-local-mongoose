@@ -49,11 +49,7 @@ module.exports = function(schema, options) {
   options.errorMessages.UserExistsError = options.errorMessages.UserExistsError|| 'A user with the given username is already registered';
 
   var pbkdf2 = function(password, salt, callback) {
-    if (crypto.pbkdf2.length >= 6) {
-      crypto.pbkdf2(password, salt, options.iterations, options.keylen, options.digestAlgorithm, callback);
-    } else {
-      crypto.pbkdf2(password, salt, options.iterations, options.keylen, callback);
-    }
+    crypto.pbkdf2(password, salt, options.iterations, options.keylen, options.digestAlgorithm, callback);
   };
 
   var schemaFields = {};
